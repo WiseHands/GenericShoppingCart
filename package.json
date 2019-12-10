@@ -1,0 +1,21 @@
+{
+  "name": "wise-shopping-cart",
+  "description": "shopping cart for Wise Hands project",
+  "main": "wise-shopping-cart.js",
+  "dependencies": {
+    "@polymer/iron-ajax": "^3.0.1",
+    "@polymer/iron-icons": "^3.0.1",
+    "@polymer/iron-image": "^3.0.2",
+    "@polymer/paper-card": "^3.0.1",
+    "@polymer/paper-icon-button": "^3.0.2",
+    "@polymer/polymer": "^3.0.0"
+  },
+  "devDependencies": {
+    "@polymer/iron-demo-helpers": "^3.1.0",
+    "@polymer/test-fixture": "^4.0.2",
+    "@webcomponents/webcomponentsjs": "^2.0.0",
+    "chai": "^4.2.0",
+    "mocha": "^6.1.4",
+    "wct-mocha": "^1.0.1"
+  }
+}
