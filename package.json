@@ -1,5 +1,6 @@
 {
   "name": "wise-shopping-cart",
+  "version": "0.0.1",
   "description": "shopping cart for Wise Hands project",
   "main": "wise-shopping-cart.js",
   "dependencies": {
