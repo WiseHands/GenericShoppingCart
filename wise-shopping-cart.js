@@ -5,14 +5,6 @@ import '@polymer/paper-icon-button/paper-icon-button.js';
 import '@polymer/iron-icon/iron-icon.js';
 import '@polymer/iron-icons/iron-icons.js';
 
-/**
- * `wise-shopping-cart`
- * shopping cart for Wise Hands project
- *
- * @customElement
- * @polymer
- * @demo demo/index.html
- */
 class WiseShoppingCart extends PolymerElement {
   static get template() {
     return html`
@@ -29,10 +21,6 @@ class WiseShoppingCart extends PolymerElement {
         }
         .image-container {
             padding: .5em;
-        }
-        .image-container img {
-           width: 100px;
-           height: 75px;
         }
         iron-image {
             display: flex;
@@ -71,26 +59,23 @@ class WiseShoppingCart extends PolymerElement {
               align-self: center;
            }   
         }
-        @media screen and (max-width: 420px) {
-            
-        }
       </style>
       <template is="dom-repeat" items="[[cartItems]]">
-          <paper-card class="paper-card-container">
-            <div class="image-container">
-              <iron-image sizing="cover" height="100" width="100" src="/3401a4b7-7cef-4552-a03f-1cedaec19070.jpg">
-            </div>
-            <div class="total-container">
-              <h3>[[item.product.name]]</h3>
-                <div class="product-calculated-container">  
-                      <paper-icon-button icon="remove"></paper-icon-button>
-                      <p class="quantity-span">[[item.quantity]]</p>
-                      <paper-icon-button icon="add"></paper-icon-button>
-                      <div class="total-span">[[_calculateTotalPrice(item.quantity, item.product.price)]]<br> UAH</div>
-                      <paper-icon-button icon="close"></paper-icon-button>
-                </div>
-            </div>
-          </paper-card>
+        <paper-card class="paper-card-container">
+          <div class="image-container">
+            <iron-image sizing="cover" height="100" width="100" src="/stretched-1920-1080-714506.jpg">
+          </div>
+          <div class="total-container">
+            <h3>[[item.product.name]]</h3>
+              <div class="product-calculated-container">  
+                    <paper-icon-button icon="remove"></paper-icon-button>
+                    <p class="quantity-span">[[item.quantity]]</p>
+                    <paper-icon-button icon="add"></paper-icon-button>
+                    <div class="total-span">[[_calculateTotalPrice(item.quantity, item.product.price)]]<br> UAH</div>
+                    <paper-icon-button icon="close"></paper-icon-button>
+              </div>
+          </div>
+        </paper-card>
       </template>
       
     `;
