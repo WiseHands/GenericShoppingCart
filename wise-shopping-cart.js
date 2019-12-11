@@ -1,4 +1,5 @@
 import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
+import {WiseShoppingCartItem} from './wise-shopping-cart-item.js';
 import '@polymer/paper-button/paper-button.js';
 
 class WiseShoppingCart extends PolymerElement {
