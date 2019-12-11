@@ -4,6 +4,7 @@ import '@polymer/iron-image/iron-image.js';
 import '@polymer/paper-icon-button/paper-icon-button.js';
 import '@polymer/iron-icon/iron-icon.js';
 import '@polymer/iron-icons/iron-icons.js';
+import '@polymer/paper-button/paper-button.js';
 
 class WiseShoppingCart extends PolymerElement {
   static get template() {
@@ -45,10 +46,33 @@ class WiseShoppingCart extends PolymerElement {
            text-overflow: ellipsis;
            margin: 0;
         }
+        p {
+            font-weight: 300;
+            font-size: 1.25rem;
+            text-align: center;
+        }
         .product-calculated-container {
            display: flex;
            flex-direction: row;
            align-items: center;
+        }
+        
+        paper-button {
+            background-color: #fff;
+            color: #000;
+            border: 2px solid #000;
+            border-radius: 0;
+            width: fit-content;
+            align-self: center;
+        }
+        paper-button:hover {
+            background-color: #000;
+            color: #fff;
+            border: 2px solid #fff;
+        }
+        .empty-cart-container {
+            display: flex;
+            flex-direction: column
         }
         @media screen and (max-width: 500px) {
            .total-container{
@@ -60,24 +84,32 @@ class WiseShoppingCart extends PolymerElement {
            }   
         }
       </style>
-      <template is="dom-repeat" items="[[cartItems]]">
-        <paper-card class="paper-card-container">
-          <div class="image-container">
-            <iron-image sizing="cover" height="100" width="100" src="/stretched-1920-1080-714506.jpg">
-          </div>
-          <div class="total-container">
-            <h3>[[item.product.name]]</h3>
-              <div class="product-calculated-container">  
-                    <paper-icon-button icon="remove"></paper-icon-button>
-                    <p class="quantity-span">[[item.quantity]]</p>
-                    <paper-icon-button icon="add"></paper-icon-button>
-                    <div class="total-span">[[_calculateTotalPrice(item.quantity, item.product.price)]]<br> UAH</div>
-                    <paper-icon-button icon="close"></paper-icon-button>
+      <template is="dom-if" if="[[_isInShoppingCartAnyItems(cartItems.length)]]">
+          <template is="dom-repeat" items="[[cartItems]]">
+            <paper-card class="paper-card-container">
+              <div class="image-container">
+                <iron-image sizing="cover" height="100" width="100" src="/3401a4b7-7cef-4552-a03f-1cedaec19070.jpg">
               </div>
-          </div>
-        </paper-card>
+              <div class="total-container">
+                <h3>[[item.product.name]]</h3>
+                  <div class="product-calculated-container">  
+                        <paper-icon-button icon="remove" on-click="_decreaseItemQuantity(item.uuid)"></paper-icon-button>
+                        <p class="quantity-span">[[item.quantity]]</p>
+                        <paper-icon-button icon="add"></paper-icon-button>
+                        <div class="total-span">[[_calculateTotalPrice(item.quantity, item.product.price)]]<br> UAH</div>
+                        <paper-icon-button icon="close"></paper-icon-button>
+                  </div>
+              </div>
+            </paper-card>
+          </template>
       </template>
       
+      <template is="dom-if" if="[[!_isInShoppingCartAnyItems(cartItems.length)]]">
+      <div class="empty-cart-container">
+          <p>Ваш кошик порожній</p> <br>
+          <paper-button>ПОЧАТИ ПОКУПКУ</paper-button>
+      </div>
+      </template>
     `;
   }
 
@@ -88,12 +120,24 @@ class WiseShoppingCart extends PolymerElement {
     }
   static get properties() {
     return {
-        cartItems: Array,
+        cartItems: {
+            type: Array,
+            value: []
+        },
     };
   }
 
     _calculateTotalPrice (quantity, price) {
       return quantity * price;
+    }
+
+    _isInShoppingCartAnyItems (cartItemsLength) {
+      return cartItemsLength > 0;
+    }
+
+    _decreaseItemQuantity (itemId) {
+      // this.fire('decrease-item-quantity', itemId);
+      console.log('_decreaseItemQuantity: ', itemId);
     }
 
 }

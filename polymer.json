@@ -1,8 +1,21 @@
 {
-  "npm": true,
-  "lint": {
-    "rules": [
-      "polymer-3"
-    ]
-  }
+  "entrypoint": "index.html",
+  "shell": "src/wise-shopping-cart.js",
+  "sources": [
+    "src/**.js",
+    "manifest/**",
+    "package.json"
+  ],
+  "extraDependencies": [
+    "manifest.json",
+    "node_modules/@webcomponents/webcomponentsjs/bundles/**"
+  ],
+  "builds": [{
+    "name": "mybuild",
+    "preset": "es6-bundled",
+    "preset": "es5-bundled",
+    "html": { "minify": false},
+    "addServiceWorker": false
+  }]
+
 }
