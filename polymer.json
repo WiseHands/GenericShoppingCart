@@ -12,10 +12,10 @@
   ],
   "builds": [{
     "name": "mybuild",
-    "preset": "es6-bundled",
     "preset": "es5-bundled",
     "html": { "minify": false},
-    "addServiceWorker": false
+    "addServiceWorker": false,
+    "addPushManifest": true
   }]
 
 }

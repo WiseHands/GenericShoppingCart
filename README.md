@@ -20,3 +20,23 @@ $ polymer test
 ```
 
 Your application is already set up to be tested via [web-component-tester](https://github.com/Polymer/web-component-tester). Run `polymer test` to run your application's test suite locally.
+
+## Demo
+<!---
+```
+<custom-element-demo>
+  <template>
+    <script src="../webcomponentsjs/webcomponents-lite.js"></script>
+    <link rel="import" href="grain-read-more.html">
+    <next-code-block></next-code-block>
+  </template>
+</custom-element-demo>
+```
+-->
+```html
+<grain-read-more>
+  <h3>Read More</h3>
+  <div slot="more">
+    The Content is only visible if grain-read-more is opened
+  </div>
+</grain-read-more>
