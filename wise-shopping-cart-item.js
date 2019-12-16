@@ -91,15 +91,30 @@ export class WiseShoppingCartItem extends PolymerElement {
     }
 
     _decreaseItemQuantity () {
-        this.dispatchEvent(new CustomEvent('decrease-item-quantity', {detail: this.cartItem.uuid}));
+        this.dispatchEvent(new CustomEvent('decrease-item-quantity',
+            {
+                detail: this.cartItem.uuid,
+                bubbles: true,
+                composed: true
+            }));
     }
 
     _increaseItemQuantity () {
-        this.dispatchEvent(new CustomEvent('increase-item-quantity', {detail: this.cartItem.uuid}))
+        this.dispatchEvent(new CustomEvent('increase-item-quantity',
+            {
+                detail: this.cartItem.uuid,
+                bubbles: true,
+                composed: true
+            }));
     }
 
     _removeItem () {
-        this.dispatchEvent(new CustomEvent('remove-item', {detail: this.cartItem.uuid}))
+        this.dispatchEvent(new CustomEvent('remove-item',
+            {
+                detail: this.cartItem.uuid,
+                bubbles: true,
+                composed: true
+            }))
     }
 
 }
