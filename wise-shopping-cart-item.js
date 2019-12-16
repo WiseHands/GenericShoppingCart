@@ -64,7 +64,7 @@ export class WiseShoppingCartItem extends PolymerElement {
       </style>
     <paper-card class="paper-card-container">
       <div class="image-container">
-        <iron-image sizing="cover" height="100" width="100" src="/3401a4b7-7cef-4552-a03f-1cedaec19070.jpg">
+        <iron-image sizing="cover" height="100" width="100" src="[[cartItem.product.mainImage.filename]]">
       </div>
       <div class="total-container">
         <h3>[[cartItem.product.name]]</h3>
