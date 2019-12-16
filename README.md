@@ -26,9 +26,5 @@ $ polymer serve
 ```
 -->
 ```html
-<grain-read-more>
-  <h3>Read More</h3>
-  <div slot="more">
-    The Content is only visible if grain-read-more is opened
-  </div>
-</grain-read-more>
+<wise-shopping-cart>
+</wise-shopping-cart>
