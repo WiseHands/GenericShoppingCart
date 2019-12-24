@@ -1,7 +1,23 @@
-[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/wise-shopping-cart)
+[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/owner/my-element)
 # \<wise-shopping-cart\>
 
-Responsive Generic Shopping Cart built on Polymer 3
+Responsive shopping cart
+
+### It contains:
+- image
+- name 
+- quantity 
+- price 
+- increase/decrease quantity buttons 
+- remove item from cart button 
+
+### Desktop view
+![Alt text](demo/desktopView.png "Desktop view")
+
+### Mobile view
+![Alt text](demo/mobileView.png "Mobile view")
+
+# How to run
 
 ## Install the Polymer-CLI
 
@@ -12,19 +28,3 @@ First, make sure you have the [Polymer CLI](https://www.npmjs.com/package/polyme
 ```
 $ polymer serve
 ```
-
-## Demo
-<!---
-```
-<custom-element-demo>
-  <template>
-    <script src="../webcomponentsjs/webcomponents-lite.js"></script>
-    <link rel="import" href="grain-read-more.html">
-    <next-code-block></next-code-block>
-  </template>
-</custom-element-demo>
-```
--->
-```html
-<wise-shopping-cart>
-</wise-shopping-cart>

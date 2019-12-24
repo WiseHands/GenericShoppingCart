@@ -64,15 +64,15 @@ export class WiseShoppingCartItem extends PolymerElement {
       </style>
     <paper-card class="paper-card-container">
       <div class="image-container">
-        <iron-image sizing="cover" height="100" width="100" src="[[cartItem.product.mainImage.filename]]">
+        <iron-image sizing="cover" height="100" width="100" src="[[cartItem.imagePath]]">
       </div>
       <div class="total-container">
-        <h3>[[cartItem.product.name]]</h3>
+        <h3>[[cartItem.name]]</h3>
           <div class="product-calculated-container">  
                 <paper-icon-button icon="remove" on-tap="_decreaseItemQuantity"></paper-icon-button>
                 <p class="quantity-span">[[cartItem.quantity]]</p>
                 <paper-icon-button icon="add" on-tap="_increaseItemQuantity"></paper-icon-button>
-                <div class="total-span">[[_calculateTotalPrice(cartItem.quantity, cartItem.product.price)]]<br> UAH</div>
+                <div class="total-span">[[_calculateTotalPrice(cartItem.quantity, cartItem.price)]]<br> UAH</div>
                 <paper-icon-button icon="close" on-tap="_removeItem"></paper-icon-button>
           </div>
       </div>
