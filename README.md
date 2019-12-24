@@ -28,3 +28,7 @@ First, make sure you have the [Polymer CLI](https://www.npmjs.com/package/polyme
 ```
 $ polymer serve
 ```
+
+# How to use
+
+You can see usage in demo-wise-shopping-cart.js

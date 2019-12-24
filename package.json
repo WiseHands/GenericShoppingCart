@@ -1,7 +1,7 @@
 {
   "name": "wise-shopping-cart",
-  "version": "0.0.10",
-  "description": "shopping cart for Wise Hands project",
+  "version": "0.1.0",
+  "description": "Responsive shopping cart",
   "author": "WiseHands Team",
   "repository": "WiseHands/GenericShoppingCart",
   "main": "wise-shopping-cart.js",
