@@ -25,5 +25,16 @@
   </head>
   <body>
      <demo-wise-shopping-cart></demo-wise-shopping-cart>
+     <script>
+       document.addEventListener('remove-item', function (e) {
+         console.log("removeItem:", e.detail, e.bubbles, e.composed);
+       })
+       document.addEventListener('decrease-item-quantity', function (e) {
+         console.log("decreaseItemQuantity:", e.detail, e.bubbles, e.composed);
+       })
+       document.addEventListener('increase-item-quantity', function (e) {
+         console.log("increaseItemQuantity:", e.detail, e.bubbles, e.composed);
+       })
+     </script>
   </body>
 </html>

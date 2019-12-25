@@ -10,26 +10,27 @@ export class DemoWiseShoppingCart extends PolymerElement {
 
   static get properties() {
     return {
-        cartItems: {
-          type: Array,
-          value: [
-            {
-              name: 'Google Pixel 4',
-              imagePath: 'demo1.jpg',
-              quantity: '1',
-              price: '25999'
-            },
-            {
-              name: 'Apple IPhone 11 Pro',
-              imagePath: 'demo2.jpg',
-              quantity: '1',
-              price: '25999'
-            }
-          ]
-        }
+      cartItems: {
+        type: Array,
+        value: [
+          {
+            "uuid": "8",
+            "name": "Google Pixel 4",
+            "imagePath": "demo1.jpg",
+            "quantity": "1",
+            "price": "25999"
+          },
+          {
+            "uuid": "16",
+            "name": "Apple iPhone 11 Pro",
+            "imagePath": "demo2.jpg",
+            "quantity": "1",
+            "price": "25999"
+          }
+        ]
+      }
     };
   }
-
 
 }
 
