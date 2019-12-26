@@ -44,6 +44,7 @@ export class WiseShoppingCartItem extends PolymerElement {
            overflow: hidden;
            text-overflow: ellipsis;
            margin: 0;
+           font-weight: normal;
         }
        
         .product-calculated-container {
@@ -58,7 +59,7 @@ export class WiseShoppingCartItem extends PolymerElement {
               align-items: normal;
            }   
            .product-calculated-container {
-              align-self: center;
+              align-self: auto;
            }   
         }
       </style>
@@ -72,7 +73,7 @@ export class WiseShoppingCartItem extends PolymerElement {
                 <paper-icon-button icon="remove" on-tap="_decreaseItemQuantity"></paper-icon-button>
                 <p class="quantity-span">[[cartItem.quantity]]</p>
                 <paper-icon-button icon="add" on-tap="_increaseItemQuantity"></paper-icon-button>
-                <div class="total-span">[[_calculateTotalPrice(cartItem.quantity, cartItem.price)]]<br> UAH</div>
+                <div class="total-span">[[_calculateTotalPrice(cartItem.quantity, cartItem.price)]]<br> USD</div>
                 <paper-icon-button icon="close" on-tap="_removeItem"></paper-icon-button>
           </div>
       </div>

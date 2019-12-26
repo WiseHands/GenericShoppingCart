@@ -1,4 +1,4 @@
-[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/owner/my-element)
+[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/wise-shopping-cart)
 # \<wise-shopping-cart\>
 
 Responsive shopping cart by [WiseHands](https://wisehands.me)
@@ -28,7 +28,12 @@ $ polymer serve
 
 You can see usage in `demo-wise-shopping-cart.js`
 
+### Notes
+
+Product images should have 1:1 ratio.
+
 To initialize use this JSON to fill values:
+
 ```
 <wise-shopping-cart cart-items="[[cartItems]]"></wise-shopping-cart>
 
