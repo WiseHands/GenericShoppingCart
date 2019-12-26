@@ -40,21 +40,22 @@ To initialize use this JSON to fill values:
 [
     {
         "uuid": "8",
-        "name":"Google Pixel 4",
-        "imagePath":"demo1.jpg",
-        "quantity":"1",
-        "price":"25999"
+        "name": "Google Pixel 4",
+        "imagePath": "demo1.jpg",
+        "quantity": 1,
+        "price": 799
     },
     {
         "uuid": "16",
-        "name":"Apple iPhone 11 Pro",
-        "imagePath":"demo2.jpg",
-        "quantity":"1",
-        "price":"25999"
+        "name": "Apple iPhone 11 Pro",
+        "imagePath": "demo2.jpg",
+        "quantity": 1,
+        "price": 1199
     }
 ]
 ```
 There are three events available: 
+
 - `increase-item-quantity`
 - `decrease-item-quantity`
 - `remove-item`
