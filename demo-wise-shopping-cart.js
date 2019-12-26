@@ -17,15 +17,15 @@ export class DemoWiseShoppingCart extends PolymerElement {
             "uuid": "8",
             "name": "Google Pixel 4",
             "imagePath": "demo1.jpg",
-            "quantity": "1",
-            "price": "799"
+            "quantity": 1,
+            "price": 799
           },
           {
             "uuid": "16",
             "name": "Apple iPhone 11 Pro",
             "imagePath": "demo2.jpg",
-            "quantity": "1",
-            "price": "1199"
+            "quantity": 1,
+            "price": 1199
           }
         ]
       }
