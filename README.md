@@ -62,12 +62,16 @@ There are three events available:
 
 ```
 document.addEventListener('remove-item', function (e) {
-   console.log("removeItem:", e.detail);
+   console.log("remove item clicked, add your handler to invoke api or change value in other storage", e.detail);
 })
 document.addEventListener('decrease-item-quantity', function (e) {
-   console.log("decreaseItemQuantity:", e.detail);
+   console.log("decrease item quantity clicked, add your handler to invoke api or change value in other storage", e.detail);
 })
 document.addEventListener('increase-item-quantity', function (e) {
-   console.log("increaseItemQuantity:", e.detail);
+   console.log("increase item quantity clicked, add your handler to invoke api or change value in other storage", e.detail);
+})
+
+document.addEventListener('start-shopping', function (e) {
+   console.log("in empty basket, start shopping button was clicked");
 })
 ```

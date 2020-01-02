@@ -46,7 +46,12 @@ export class WiseShoppingCart extends PolymerElement {
       </style>
       <template is="dom-if" if="[[_isInShoppingCartAnyItems(cartItems.length)]]">
           <template is="dom-repeat" items="[[cartItems]]">
-            <wise-shopping-cart-item start-shopping-label="[[startShoppingLabel]]" basket-empty-label="[[basketEmptyLabel]]" cart-item="[[item]]"></wise-shopping-cart-item>
+            <wise-shopping-cart-item
+              start-shopping-label="[[startShoppingLabel]]"
+              basket-empty-label="[[basketEmptyLabel]]"
+              currency-label="[[currencyLabel]]"
+              cart-item="[[item]]">
+            </wise-shopping-cart-item>
           </template>
       </template>
       
@@ -69,7 +74,10 @@ export class WiseShoppingCart extends PolymerElement {
         basketEmptyLabel: {
           type: String,
           value: 'Your basket is empty'
-
+        },
+        currencyLabel: {
+            type: String,
+            value: 'USD'
         }
     };
   }

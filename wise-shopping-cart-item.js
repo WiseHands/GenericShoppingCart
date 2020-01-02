@@ -73,7 +73,7 @@ export class WiseShoppingCartItem extends PolymerElement {
                 <paper-icon-button icon="remove" on-tap="_decreaseItemQuantity"></paper-icon-button>
                 <p class="quantity-span">[[cartItem.quantity]]</p>
                 <paper-icon-button icon="add" on-tap="_increaseItemQuantity"></paper-icon-button>
-                <div class="total-span">[[_calculateTotalPrice(cartItem.quantity, cartItem.price)]]<br> USD</div>
+                <div class="total-span">[[_calculateTotalPrice(cartItem.quantity, cartItem.price)]]<br>[[currencyLabel]]</div>
                 <paper-icon-button icon="close" on-tap="_removeItem"></paper-icon-button>
           </div>
       </div>
@@ -89,6 +89,9 @@ export class WiseShoppingCartItem extends PolymerElement {
         },
         basketEmptyLabel: {
             type: String,
+        },
+        currencyLabel: {
+            type: String
         }
     };
   }
