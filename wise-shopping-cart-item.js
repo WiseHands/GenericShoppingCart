@@ -17,7 +17,6 @@ export class WiseShoppingCartItem extends PolymerElement {
            flex-direction: row;
            align-items: center;
            margin-bottom: 1em;
-           border: 1px solid lightgray;
         }
         .image-container {
             padding: .5em;
