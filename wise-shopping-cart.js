@@ -46,14 +46,14 @@ export class WiseShoppingCart extends PolymerElement {
       </style>
       <template is="dom-if" if="[[_isInShoppingCartAnyItems(cartItems.length)]]">
           <template is="dom-repeat" items="[[cartItems]]">
-            <wise-shopping-cart-item cart-item="[[item]]"></wise-shopping-cart-item>
+            <wise-shopping-cart-item start-shopping-label="[[startShoppingLabel]]" basket-empty-label="[[basketEmptyLabel]]" cart-item="[[item]]"></wise-shopping-cart-item>
           </template>
       </template>
       
       <template is="dom-if" if="[[!_isInShoppingCartAnyItems(cartItems.length)]]">
       <div class="empty-cart-container">
-          <p>Ваш кошик порожній</p> <br>
-          <paper-button>ПОЧАТИ ПОКУПКУ</paper-button>
+          <p>[[basketEmptyLabel]]</p> <br>
+          <paper-button on-tap="_startBuyingProducts">[[startShoppingLabel]]</paper-button>
       </div>
       </template>
     `;
@@ -61,13 +61,31 @@ export class WiseShoppingCart extends PolymerElement {
 
   static get properties() {
     return {
-        cartItems: Array
+        cartItems: Array,
+        startShoppingLabel: {
+            type: String,
+            value: 'START SHOPPING'
+        },
+        basketEmptyLabel: {
+          type: String,
+          value: 'Your basket is empty'
+
+        }
     };
   }
 
-    _isInShoppingCartAnyItems (cartItemsLength) {
-      return cartItemsLength > 0;
-    }
+  _startBuyingProducts () {
+        this.dispatchEvent(new CustomEvent('start-shopping',
+            {
+                bubbles: true,
+                composed: true
+            })
+        )
+  }
+
+  _isInShoppingCartAnyItems (cartItemsLength) {
+    return cartItemsLength > 0;
+  }
 
 }
 

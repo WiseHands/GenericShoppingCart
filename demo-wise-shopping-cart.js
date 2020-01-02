@@ -4,7 +4,7 @@ import {WiseShoppingCart} from './wise-shopping-cart.js';
 export class DemoWiseShoppingCart extends PolymerElement {
   static get template() {
     return html`
-      <wise-shopping-cart cart-items="[[cartItems]]"></wise-shopping-cart>
+      <wise-shopping-cart start-shopping-label="START SHOPPING" basket-empty-label="Your basket is empty" cart-items="[[cartItems]]"></wise-shopping-cart>
     `;
   }
 

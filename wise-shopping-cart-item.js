@@ -84,6 +84,12 @@ export class WiseShoppingCartItem extends PolymerElement {
   static get properties() {
     return {
         cartItem: Object,
+        startShoppingLabel: {
+            type: String,
+        },
+        basketEmptyLabel: {
+            type: String,
+        }
     };
   }
 
