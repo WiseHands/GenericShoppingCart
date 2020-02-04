@@ -64,10 +64,10 @@ export class WiseShoppingCartItem extends PolymerElement {
       </style>
     <paper-card class="paper-card-container">
       <div class="image-container">
-        <iron-image sizing="cover" height="100" width="100" src="[[cartItem.imagePath]]">
+        <iron-image sizing="cover" height="100" width="100" src="[[cartItem.imagePath]]" on-click="_openProductPageByUuid">
       </div>
       <div class="total-container">
-        <h3>[[cartItem.name]]</h3>
+        <h3 on-click="_openProductPageByUuid">[[cartItem.name]]</h3>
           <div class="product-calculated-container">  
                 <paper-icon-button icon="remove" on-tap="_decreaseItemQuantity"></paper-icon-button>
                 <p class="quantity-span">[[cartItem.quantity]]</p>
@@ -101,6 +101,15 @@ export class WiseShoppingCartItem extends PolymerElement {
 
     _decreaseItemQuantity () {
         this.dispatchEvent(new CustomEvent('decrease-item-quantity',
+            {
+                detail: this.cartItem.uuid,
+                bubbles: true,
+                composed: true
+            }));
+    }
+
+    _openProductPageByUuid (){
+        this.dispatchEvent(new CustomEvent('open-product',
             {
                 detail: this.cartItem.uuid,
                 bubbles: true,

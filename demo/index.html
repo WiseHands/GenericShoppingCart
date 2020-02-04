@@ -35,6 +35,9 @@
        document.addEventListener('increase-item-quantity', function (e) {
          console.log("increaseItemQuantity:", e.detail, e.bubbles, e.composed);
        })
+       document.addEventListener('open-product', function (e) {
+           console.log("open-product", e.detail, e.bubbles, e.composed);
+       })
      </script>
   </body>
 </html>
