@@ -21,6 +21,9 @@ export class WiseShoppingCartItem extends PolymerElement {
         .image-container {
             padding: .5em;
         }
+        .image-container:hover{
+            cursor: pointer;
+        }
         iron-image {
             display: flex;
         } 
@@ -31,6 +34,9 @@ export class WiseShoppingCartItem extends PolymerElement {
            min-width: 0;  
            flex: 1;
            justify-content: space-between;
+        }
+        .product-info-container{
+            flex-direction: column;
         }
         .quantity-span, .total-span {
            margin: 0 .5em;
@@ -44,6 +50,10 @@ export class WiseShoppingCartItem extends PolymerElement {
            text-overflow: ellipsis;
            margin: 0;
            font-weight: normal;
+        }
+        
+        .total-container h3:hover {
+            cursor: pointer;
         }
        
         .product-calculated-container {
@@ -63,19 +73,26 @@ export class WiseShoppingCartItem extends PolymerElement {
         }
       </style>
     <paper-card class="paper-card-container">
-      <div class="image-container">
-        <iron-image sizing="cover" height="100" width="100" src="[[cartItem.imagePath]]" on-click="_openProductPageByUuid">
-      </div>
-      <div class="total-container">
-        <h3 on-click="_openProductPageByUuid">[[cartItem.name]]</h3>
-          <div class="product-calculated-container">  
+        <div class="image-container">
+            <iron-image sizing="cover" height="100" width="100" src="[[cartItem.imagePath]]" on-click="_openProductPageByUuid">
+        </div>
+        <div class="total-container">
+            <div class="product-info-container">
+                <h3 on-click="_openProductPageByUuid">[[cartItem.name]]</h3>
+                <h3> Addition:
+                    <template is="dom-repeat" items="[[cartItem.additionList]]">                
+                        [[item.title]]([[item.counter]])
+                    </template>        
+                </h3>
+            </div>        
+            <div class="product-calculated-container">  
                 <paper-icon-button icon="remove" on-tap="_decreaseItemQuantity"></paper-icon-button>
                 <p class="quantity-span">[[cartItem.quantity]]</p>
                 <paper-icon-button icon="add" on-tap="_increaseItemQuantity"></paper-icon-button>
                 <div class="total-span">[[_calculateTotalPrice(cartItem.quantity, cartItem.price)]]<br>[[currencyLabel]]</div>
                 <paper-icon-button icon="close" on-tap="_removeItem"></paper-icon-button>
-          </div>
-      </div>
+            </div>
+        </div>
     </paper-card>
     `;
   }
