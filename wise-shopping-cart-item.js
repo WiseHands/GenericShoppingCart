@@ -79,7 +79,7 @@ export class WiseShoppingCartItem extends PolymerElement {
         <div class="total-container">
             <div class="product-info-container">
                 <h3 on-click="_openProductPageByUuid">[[cartItem.name]]</h3>
-                <h3> Addition:
+                <h3> Додатки: 
                     <template is="dom-repeat" items="[[cartItem.additionList]]">                
                         [[item.title]]([[item.counter]])
                     </template>        
