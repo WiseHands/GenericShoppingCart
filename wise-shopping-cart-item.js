@@ -38,6 +38,11 @@ export class WiseShoppingCartItem extends PolymerElement {
         .product-info-container{
             flex-direction: column;
         }
+        .product-info-container h4{
+           font-size: 0.8rem;
+           font-weight: 400;
+           margin: 5px 0;;
+        }
         .quantity-span, .total-span {
            margin: 0 .5em;
         }
@@ -79,17 +84,17 @@ export class WiseShoppingCartItem extends PolymerElement {
         <div class="total-container">
             <div class="product-info-container">
                 <h3 on-click="_openProductPageByUuid">[[cartItem.name]]</h3>
-                <h3> Додатки: 
+                <h4> 
                     <template is="dom-repeat" items="[[cartItem.additionList]]">                
                         [[item.title]]([[item.counter]])
                     </template>        
-                </h3>
+                </h4>
             </div>        
             <div class="product-calculated-container">  
                 <paper-icon-button icon="remove" on-tap="_decreaseItemQuantity"></paper-icon-button>
                 <p class="quantity-span">[[cartItem.quantity]]</p>
                 <paper-icon-button icon="add" on-tap="_increaseItemQuantity"></paper-icon-button>
-                <div class="total-span">[[_calculateTotalPrice(cartItem.quantity, cartItem.price)]]<br>[[currencyLabel]]</div>
+                <div class="total-span">[[_calculateTotalPrice(cartItem.quantity, cartItem.price, cartItem.additionList)]]<br>[[currencyLabel]]</div>
                 <paper-icon-button icon="close" on-tap="_removeItem"></paper-icon-button>
             </div>
         </div>
@@ -112,8 +117,13 @@ export class WiseShoppingCartItem extends PolymerElement {
     };
   }
 
-    _calculateTotalPrice (quantity, price) {
-      return quantity * price;
+    _calculateTotalPrice (quantity, productPrice, additionList) {
+        let additionPrice = 0;
+        additionList.forEach(item => {
+           additionPrice += item.price * item.counter;
+        });
+      console.log("additionPrice*counter", additionPrice);
+      return quantity * (productPrice + additionPrice);
     }
 
     _decreaseItemQuantity () {
