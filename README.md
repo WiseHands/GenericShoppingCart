@@ -71,7 +71,7 @@ To initialize use this JSON to fill values:
     }
 ]
 ```
-There are three events available: 
+There are events available: 
 
 - `increase-item-quantity`
 - `decrease-item-quantity`
