@@ -24,14 +24,14 @@ export class DemoWiseShoppingCart extends PolymerElement {
                 "uuid": "401",
                 "title": "сир",
                 "price": 25,
-                "counter": 4,
+                "quantity": 4,
                 "imagePath": "http://localhost:3334/public/product_images/402881ce7010f488017010f495ef000b//public/files/402881ce7010f488017010f495ef000b/9746a26d-ea5d-4bac-b1f4-6a77994ffded.jpg"
               },
               {
                 "uuid": "402",
                 "title": "рис",
                 "price": 20,
-                "counter": 1,
+                "quantity": 1,
                 "imagePath": "http://localhost:3334/public/product_images/402881ce7010f488017010f495ef000b//public/files/402881ce7010f488017010f495ef000b/9746a26d-ea5d-4bac-b1f4-6a77994ffded.jpg"
               }
             ]
@@ -42,9 +42,7 @@ export class DemoWiseShoppingCart extends PolymerElement {
             "imagePath": "demo2.jpg",
             "quantity": 1,
             "price": 1199,
-            "additionList": [
-
-            ]
+            "additionList": []
           }
         ]
       }

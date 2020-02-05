@@ -86,7 +86,7 @@ export class WiseShoppingCartItem extends PolymerElement {
                 <h3 on-click="_openProductPageByUuid">[[cartItem.name]]</h3>
                 <h4> 
                     <template is="dom-repeat" items="[[cartItem.additionList]]">                
-                        [[item.title]]<span hidden="[[!hasMoreThanOneQuantity(item)]]">([[item.counter]])</span>
+                        [[item.title]]<span hidden="[[!hasMoreThanOneQuantity(item)]]">([[item.quantity]])</span>
                         <span hidden="[[isLastItem(cartItem.additionList, index)]]">,</span>
                     </template>        
                 </h4>
@@ -121,9 +121,8 @@ export class WiseShoppingCartItem extends PolymerElement {
     _calculateTotalPrice (quantity, productPrice, additionList) {
         let additionPrice = 0;
         additionList.forEach(item => {
-           additionPrice += item.price * item.counter;
+           additionPrice += item.price * item.quantity;
         });
-      console.log("additionPrice*counter", additionPrice);
       return quantity * (productPrice + additionPrice);
     }
 
@@ -168,7 +167,7 @@ export class WiseShoppingCartItem extends PolymerElement {
     }
 
     hasMoreThanOneQuantity (item) {
-      return item.counter > 1;
+      return item.quantity > 1;
     }
 }
 
