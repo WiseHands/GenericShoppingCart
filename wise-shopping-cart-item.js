@@ -86,7 +86,7 @@ export class WiseShoppingCartItem extends PolymerElement {
                 <h3 on-click="_openProductPageByUuid">[[cartItem.name]]</h3>
                 <h4> 
                     <template is="dom-repeat" items="[[cartItem.additionList]]">                
-                        [[item.title]]([[item.counter]])
+                        [[item.title]]([[item.counter]])<span hidden="[[isLastItem(cartItem.additionList, index)]]">,</span>
                     </template>        
                 </h4>
             </div>        
@@ -160,6 +160,10 @@ export class WiseShoppingCartItem extends PolymerElement {
                 bubbles: true,
                 composed: true
             }))
+    }
+
+    isLastItem (additionList, index){
+      return index + 1 === additionList.length;
     }
 
 }
