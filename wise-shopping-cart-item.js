@@ -86,7 +86,8 @@ export class WiseShoppingCartItem extends PolymerElement {
                 <h3 on-click="_openProductPageByUuid">[[cartItem.name]]</h3>
                 <h4> 
                     <template is="dom-repeat" items="[[cartItem.additionList]]">                
-                        [[item.title]]([[item.counter]])<span hidden="[[isLastItem(cartItem.additionList, index)]]">,</span>
+                        [[item.title]]<span hidden="[[!hasMoreThanOneQuantity(item)]]">([[item.counter]])</span>
+                        <span hidden="[[isLastItem(cartItem.additionList, index)]]">,</span>
                     </template>        
                 </h4>
             </div>        
@@ -166,6 +167,9 @@ export class WiseShoppingCartItem extends PolymerElement {
       return index + 1 === additionList.length;
     }
 
+    hasMoreThanOneQuantity (item) {
+      return item.counter > 1;
+    }
 }
 
 window.customElements.define('wise-shopping-cart-item', WiseShoppingCartItem);
