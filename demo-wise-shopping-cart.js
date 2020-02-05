@@ -17,19 +17,19 @@ export class DemoWiseShoppingCart extends PolymerElement {
             "uuid": "8",
             "name": "Google Pixel 4",
             "imagePath": "demo1.jpg",
-            "quantity": 5,
+            "quantity": 2,
             "price": 799,
             "additionList": [
               {
                 "uuid": "401",
-                "title": "сир",
+                "title": "memory card",
                 "price": 25,
-                "quantity": 4,
+                "quantity": 2,
                 "imagePath": "http://localhost:3334/public/product_images/402881ce7010f488017010f495ef000b//public/files/402881ce7010f488017010f495ef000b/9746a26d-ea5d-4bac-b1f4-6a77994ffded.jpg"
               },
               {
                 "uuid": "402",
-                "title": "рис",
+                "title": "headphone",
                 "price": 20,
                 "quantity": 1,
                 "imagePath": "http://localhost:3334/public/product_images/402881ce7010f488017010f495ef000b//public/files/402881ce7010f488017010f495ef000b/9746a26d-ea5d-4bac-b1f4-6a77994ffded.jpg"
