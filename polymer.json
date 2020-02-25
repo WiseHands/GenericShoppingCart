@@ -4,7 +4,7 @@
   "sources": [
     "src/**.js",
     "manifest/**",
-    "image/**/*",
+    "images/**/*",
     "package.json"
   ],
   "extraDependencies": [
