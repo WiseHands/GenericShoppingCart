@@ -1,13 +1,13 @@
 {
   "entrypoint": "index.html",
-  "shell": "src/wise-shopping-cart.js",
+  "shell": "wise-shopping-cart.js",
   "sources": [
     "src/**.js",
     "manifest/**",
+    "image/**/*",
     "package.json"
   ],
   "extraDependencies": [
-    "manifest.json",
     "node_modules/@webcomponents/webcomponentsjs/bundles/**"
   ],
   "builds": [{

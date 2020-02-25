@@ -43,6 +43,10 @@ export class WiseShoppingCart extends PolymerElement {
             display: flex;
             flex-direction: column
         }
+        .empty-cart-img {
+            display: flex;
+            justify-content: center;
+        }
       </style>
       <template is="dom-if" if="[[_isInShoppingCartAnyItems(cartItems.length)]]">
           <template is="dom-repeat" items="[[cartItems]]">
@@ -57,6 +61,9 @@ export class WiseShoppingCart extends PolymerElement {
       
       <template is="dom-if" if="[[!_isInShoppingCartAnyItems(cartItems.length)]]">
       <div class="empty-cart-container">
+          <div class="empty-cart-img">
+              <img src="../image/shopping_cart_empty.png">
+          </div>
           <p>[[basketEmptyLabel]]</p> <br>
           <paper-button on-tap="_startBuyingProducts">[[startShoppingLabel]]</paper-button>
       </div>
