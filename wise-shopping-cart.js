@@ -62,7 +62,7 @@ export class WiseShoppingCart extends PolymerElement {
       <template is="dom-if" if="[[!_isInShoppingCartAnyItems(cartItems.length)]]">
       <div class="empty-cart-container">
           <div class="empty-cart-img">
-              <img src="../image/shopping_cart_empty.png">
+              <img src="../images/shopping_cart_empty.png">
           </div>
           <p>[[basketEmptyLabel]]</p> <br>
           <paper-button on-tap="_startBuyingProducts">[[startShoppingLabel]]</paper-button>
