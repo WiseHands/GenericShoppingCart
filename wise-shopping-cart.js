@@ -46,6 +46,7 @@ export class WiseShoppingCart extends PolymerElement {
         .empty-cart-img {
             display: flex;
             justify-content: center;
+            margin: 1.5em 0 1.5em 0;
         }
         svg {
             width: 25%;
