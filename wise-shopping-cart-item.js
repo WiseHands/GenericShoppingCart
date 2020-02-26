@@ -69,7 +69,13 @@ export class WiseShoppingCartItem extends PolymerElement {
            flex-direction: row;
            align-items: center;
         }
-      
+
+        @media screen and (max-width: 1500px) {
+           .product-info-container {
+              max-width: 50%;
+           }
+        }
+
         @media screen and (max-width: 500px) {
            .total-container{
               flex-direction: column;
