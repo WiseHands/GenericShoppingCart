@@ -17,6 +17,8 @@ export class WiseShoppingCartItem extends PolymerElement {
            flex-direction: row;
            align-items: center;
            margin-bottom: 1em;
+           margin-right: .1em;
+           margin-left: .1em;
         }
         .image-container {
             padding: .5em;
@@ -37,6 +39,7 @@ export class WiseShoppingCartItem extends PolymerElement {
         }
         .product-info-container{
             flex-direction: column;
+            max-width: 70%;
         }
         .product-info-container h4{
            font-size: 0.8rem;
