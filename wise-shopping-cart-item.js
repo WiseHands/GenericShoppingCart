@@ -39,7 +39,7 @@ export class WiseShoppingCartItem extends PolymerElement {
         }
         .product-info-container{
             flex-direction: column;
-            max-width: 70%;
+            overflow: auto;
         }
         .product-info-container h4{
            font-size: 0.8rem;
@@ -69,7 +69,7 @@ export class WiseShoppingCartItem extends PolymerElement {
            flex-direction: row;
            align-items: center;
         }
-
+      
         @media screen and (max-width: 500px) {
            .total-container{
               flex-direction: column;
@@ -78,18 +78,6 @@ export class WiseShoppingCartItem extends PolymerElement {
            .product-calculated-container {
               align-self: auto;
            }   
-        }
-
-        @media screen and (max-width: 1024px) {
-           .product-info-container {
-              max-width: 74%;
-           }
-        }
-
-        @media screen and (max-width: 1500px) {
-           .product-info-container {
-              max-width: 50%;
-           }
         }
       </style>
     <paper-card class="paper-card-container">
