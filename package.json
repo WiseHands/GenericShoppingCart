@@ -1,6 +1,6 @@
 {
   "name": "wise-shopping-cart",
-  "version": "0.2.9",
+  "version": "0.3.0",
   "description": "Responsive shopping cart",
   "author": "WiseHands Team",
   "repository": "WiseHands/GenericShoppingCart",
@@ -17,7 +17,7 @@
   "devDependencies": {
     "@polymer/iron-demo-helpers": "^3.1.0",
     "@polymer/test-fixture": "^4.0.2",
-    "@webcomponents/webcomponentsjs": "^2.0.0",
+    "@webcomponents/webcomponentsjs": "^2.4.2",
     "chai": "^4.2.0",
     "mocha": "^6.1.4",
     "wct-mocha": "^1.0.1"
