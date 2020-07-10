@@ -97,7 +97,7 @@ export class WiseShoppingCartItem extends PolymerElement {
         </div>
         <div class="total-container">
             <div class="product-info-container">
-                <h3 on-click="_openProductPageByUuid">[[cartItem.name]]</h3>
+                <h3 on-click="_openProductPageByUuid">[[_translateProductName(cartItem)]]</h3>
                 <h4> 
                     <template is="dom-repeat" items="[[cartItem.additionList]]">                
                         [[item.title]]<span hidden="[[!hasMoreThanOneQuantity(item)]]">([[item.quantity]])</span>
@@ -120,6 +120,7 @@ export class WiseShoppingCartItem extends PolymerElement {
   static get properties() {
     return {
         cartItem: Object,
+        language: String,
         startShoppingLabel: {
             type: String,
         },
@@ -131,6 +132,21 @@ export class WiseShoppingCartItem extends PolymerElement {
         }
     };
   }
+
+    _translateProductName(product){
+      let label = '';
+      let translationList = product.productNameTextTranslationBucket.translationList;
+      if(product.productNameTextTranslationBucket){
+          translationList.forEach(item => {
+          if (item.language === this.language){
+             label = item.content;
+             }
+          });
+      } else {
+           label = product.label;
+      }
+      return label;
+    }
 
     _calculateTotalPrice (quantity, productPrice, additionList) {
         let additionPrice = 0;
