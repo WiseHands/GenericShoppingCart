@@ -7,7 +7,8 @@ Responsive shopping cart by [WiseHands](https://wisehands.me)
 - image
 - name 
 - quantity 
-- price 
+- price
+- currency
 - increase/decrease quantity buttons 
 - remove item from cart button 
 
@@ -35,7 +36,7 @@ Product images should have 1:1 ratio.
 To initialize use this JSON to fill values:
 
 ```
-<wise-shopping-cart cart-items="[[cartItems]]"></wise-shopping-cart>
+<wise-shopping-cart currency-label="USD" cart-items="[[cartItems]]" basket-empty-label="Empty Shopping Cart" start-shopping-label="Start Shopping"></wise-shopping-cart>
 
 [
     {
