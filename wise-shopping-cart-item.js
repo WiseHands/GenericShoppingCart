@@ -153,7 +153,8 @@ export class WiseShoppingCartItem extends PolymerElement {
         additionList.forEach(item => {
            additionPrice += item.price * item.quantity;
         });
-      return quantity * (productPrice + additionPrice);
+        let total = quantity * (productPrice + additionPrice);
+      return +(Math.round(Number(total) + "e+2")  + "e-2");
     }
 
     _decreaseItemQuantity () {
