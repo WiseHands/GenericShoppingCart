@@ -133,6 +133,24 @@ export class WiseShoppingCartItem extends PolymerElement {
     };
   }
 
+    _translateProductName(product, language) {
+        let label = '';
+        let translationList = product.translationBucket.translationList;
+        if (product.translationBucket) {
+            translationList.forEach(item => {
+                if (item.language === language && item.content != '') {
+                    label = item.content;
+                }
+                if (item.language === language && item.content === '') {
+                    label = product.name;
+                }
+            });
+        } else {
+            label = product.name;
+        }
+        return label;
+    }
+
     _translateAdditionTitle(addition, language) {
         let label = '';
 
@@ -148,24 +166,6 @@ export class WiseShoppingCartItem extends PolymerElement {
             });
         } else {
             label = addition.title;
-        }
-        return label;
-    }
-
-    _translateProductName(product, language){
-        let label = '';
-        let translationList = product.translationBucket.translationList;
-        if (product.translationBucket){
-            translationList.forEach(item => {
-                if (item.language === language && item.content != ''){
-                    label = item.content;
-                }
-                if (item.language === language && item.content === '') {
-                    label = product.name;
-                }
-            });
-        } else {
-            label = product.name;
         }
         return label;
     }
