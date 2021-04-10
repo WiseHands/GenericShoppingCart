@@ -97,10 +97,10 @@ export class WiseShoppingCartItem extends PolymerElement {
         </div>
         <div class="total-container">
             <div class="product-info-container">
-                <h3 on-click="_openProductPageByUuid">[[_translateProductName(cartItem)]]</h3>
+                <h3 on-click="_openProductPageByUuid">[[_translateProductName(cartItem, language)]]</h3>
                 <h4> 
                     <template is="dom-repeat" items="[[cartItem.additionList]]">                
-                        [[item.title]]<span hidden="[[!hasMoreThanOneQuantity(item)]]">([[item.quantity]])</span>
+                        [[_translateAdditionTitle(addition, language)]]<span hidden="[[!hasMoreThanOneQuantity(item)]]">([[item.quantity]])</span>
                         <span hidden="[[isLastItem(cartItem.additionList, index)]]">,</span>
                     </template>        
                 </h4>
@@ -133,19 +133,41 @@ export class WiseShoppingCartItem extends PolymerElement {
     };
   }
 
-    _translateProductName(product){
-      let label = '';
-      let translationList = product.productNameTextTranslationBucket.translationList;
-      if(product.productNameTextTranslationBucket){
-          translationList.forEach(item => {
-          if (item.language === this.language){
-             label = item.content;
-             }
-          });
-      } else {
-           label = product.label;
-      }
-      return label;
+    _translateAdditionTitle(addition, language) {
+        let label = '';
+
+        if (addition.translationBucket) {
+            let translationList = addition.translationBucket.translationList;
+            translationList.forEach(itemTranslation => {
+                if (itemTranslation.language === language && itemTranslation.content != '') {
+                    label = itemTranslation.content;
+                }
+                if (itemTranslation.language === language && itemTranslation.content === '') {
+                    label = addition.title;
+                }
+            });
+        } else {
+            label = addition.title;
+        }
+        return label;
+    }
+
+    _translateProductName(product, language){
+        let label = '';
+        let translationList = product.translationBucket.translationList;
+        if (product.translationBucket){
+            translationList.forEach(item => {
+                if (item.language === language && item.content != ''){
+                    label = item.content;
+                }
+                if (item.language === language && item.content === '') {
+                    label = product.name;
+                }
+            });
+        } else {
+            label = product.name;
+        }
+        return label;
     }
 
     _calculateTotalPrice (quantity, productPrice, additionList) {
