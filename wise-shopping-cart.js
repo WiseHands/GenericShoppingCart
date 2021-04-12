@@ -56,6 +56,7 @@ export class WiseShoppingCart extends PolymerElement {
       <template is="dom-if" if="[[_isInShoppingCartAnyItems(cartItems.length)]]">
           <template is="dom-repeat" items="[[cartItems]]">
             <wise-shopping-cart-item
+              selected-language="[[selectedLanguage]]"
               start-shopping-label="[[startShoppingLabel]]"
               basket-empty-label="[[basketEmptyLabel]]"
               currency-label="[[currencyLabel]]"
@@ -129,6 +130,7 @@ export class WiseShoppingCart extends PolymerElement {
   static get properties() {
     return {
         cartItems: Array,
+        selectedLanguage: String,
         startShoppingLabel: {
             type: String,
             value: 'START SHOPPING'

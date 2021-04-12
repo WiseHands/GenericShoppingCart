@@ -97,10 +97,10 @@ export class WiseShoppingCartItem extends PolymerElement {
         </div>
         <div class="total-container">
             <div class="product-info-container">
-                <h3 on-click="_openProductPageByUuid">[[_translateProductName(cartItem, language)]]</h3>
+                <h3 on-click="_openProductPageByUuid">[[_translateProductName(cartItem)]]</h3>
                 <h4> 
                     <template is="dom-repeat" items="[[cartItem.additionList]]">                
-                        [[_translateAdditionTitle(addition, language)]]<span hidden="[[!hasMoreThanOneQuantity(item)]]">([[item.quantity]])</span>
+                        [[_translateAdditionTitle(item)]]<span hidden="[[!hasMoreThanOneQuantity(item)]]">([[item.quantity]])</span>
                         <span hidden="[[isLastItem(cartItem.additionList, index)]]">,</span>
                     </template>        
                 </h4>
@@ -120,7 +120,7 @@ export class WiseShoppingCartItem extends PolymerElement {
   static get properties() {
     return {
         cartItem: Object,
-        language: String,
+        selectedLanguage: String,
         startShoppingLabel: {
             type: String,
         },
@@ -133,10 +133,11 @@ export class WiseShoppingCartItem extends PolymerElement {
     };
   }
 
-    _translateProductName(product, language) {
+    _translateProductName(product) {
+        const language = this.selectedLanguage;
         let label = '';
-        let translationList = product.translationBucket.translationList;
         if (product.translationBucket) {
+            let translationList = product.translationBucket.translationList;
             translationList.forEach(item => {
                 if (item.language === language && item.content != '') {
                     label = item.content;
@@ -151,21 +152,22 @@ export class WiseShoppingCartItem extends PolymerElement {
         return label;
     }
 
-    _translateAdditionTitle(addition, language) {
+    _translateAdditionTitle(item) {
+        const language = this.selectedLanguage;
         let label = '';
 
-        if (addition.translationBucket) {
-            let translationList = addition.translationBucket.translationList;
+        if (item.translationBucket) {
+            let translationList = item.translationBucket.translationList;
             translationList.forEach(itemTranslation => {
                 if (itemTranslation.language === language && itemTranslation.content != '') {
                     label = itemTranslation.content;
                 }
                 if (itemTranslation.language === language && itemTranslation.content === '') {
-                    label = addition.title;
+                    label = item.title;
                 }
             });
         } else {
-            label = addition.title;
+            label = item.title;
         }
         return label;
     }
