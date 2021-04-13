@@ -52,17 +52,25 @@ export class WiseShoppingCart extends PolymerElement {
             width: 25%;
             height: auto;
         }
+        .banner-container {
+            width: 100%;
+            margin: 0 1em 1em 0;
+            padding: 5px 10px;
+        }
       </style>
       <template is="dom-if" if="[[_isInShoppingCartAnyItems(cartItems.length)]]">
-          <template is="dom-repeat" items="[[cartItems]]">
-            <wise-shopping-cart-item
-              selected-language="[[selectedLanguage]]"
-              start-shopping-label="[[startShoppingLabel]]"
-              basket-empty-label="[[basketEmptyLabel]]"
-              currency-label="[[currencyLabel]]"
-              cart-item="[[item]]">
-            </wise-shopping-cart-item>
-          </template>
+        <paper-card class="banner-container" hidden="[[!isBannerPresent]]">
+          <p>[[banner]]</p>
+        </paper-card>
+        <template is="dom-repeat" items="[[cartItems]]">
+          <wise-shopping-cart-item
+            selected-language="[[selectedLanguage]]"
+            start-shopping-label="[[startShoppingLabel]]"
+            basket-empty-label="[[basketEmptyLabel]]"
+            currency-label="[[currencyLabel]]"
+            cart-item="[[item]]">
+          </wise-shopping-cart-item>
+        </template>
       </template>
       
       <template is="dom-if" if="[[!_isInShoppingCartAnyItems(cartItems.length)]]">
@@ -131,6 +139,11 @@ export class WiseShoppingCart extends PolymerElement {
     return {
         cartItems: Array,
         selectedLanguage: String,
+        banner: String,
+        isBannerPresent: {
+           type: Boolean,
+           value: false
+        },
         startShoppingLabel: {
             type: String,
             value: 'START SHOPPING'
