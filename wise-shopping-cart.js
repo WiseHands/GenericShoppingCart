@@ -9,11 +9,11 @@ export class WiseShoppingCart extends PolymerElement {
         :host {
           display: block;
         }
-    
+
         iron-image {
             display: flex;
-        } 
-      
+        }
+
         .total-container h3 {
            white-space: nowrap;
            overflow: hidden;
@@ -25,7 +25,7 @@ export class WiseShoppingCart extends PolymerElement {
             font-size: 1.25rem;
             text-align: center;
         }
-        
+
         paper-button {
             background-color: #fff;
             color: #000;
@@ -59,8 +59,9 @@ export class WiseShoppingCart extends PolymerElement {
         }
       </style>
       <template is="dom-if" if="[[_isInShoppingCartAnyItems(cartItems.length)]]">
-        <paper-card class="banner-container" hidden="[[!isBannerPresent]]">
-          <p>[[banner]]</p>
+        <paper-card class="banner-container" hidden="[[!isBannerOn]]">
+          <p>[[bannerName]]</p>
+          <p>[[bannerDescription]]</p>
         </paper-card>
         <template is="dom-repeat" items="[[cartItems]]">
           <wise-shopping-cart-item
@@ -72,7 +73,7 @@ export class WiseShoppingCart extends PolymerElement {
           </wise-shopping-cart-item>
         </template>
       </template>
-      
+
       <template is="dom-if" if="[[!_isInShoppingCartAnyItems(cartItems.length)]]">
       <div class="empty-cart-container">
           <div class="empty-cart-img">
@@ -139,8 +140,9 @@ export class WiseShoppingCart extends PolymerElement {
     return {
         cartItems: Array,
         selectedLanguage: String,
-        banner: String,
-        isBannerPresent: {
+        bannerName: String,
+        bannerDescription: String,
+        isBannerOn: {
            type: Boolean,
            value: false
         },
