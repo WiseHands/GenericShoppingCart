@@ -53,15 +53,21 @@ export class WiseShoppingCart extends PolymerElement {
             height: auto;
         }
         .banner-container {
+        		display: flex;
+					  flex-direction: column;
+					  align-items: flex-start;
             width: 100%;
             margin: 0 1em 1em 0;
             padding: 5px 10px;
         }
+        .margin-banner-container {
+        	margin: 10px 5px;
+        }
       </style>
       <template is="dom-if" if="[[_isInShoppingCartAnyItems(cartItems.length)]]">
         <paper-card class="banner-container" hidden="[[!isBannerOn]]">
-          <p>[[bannerName]]</p>
-          <p>[[bannerDescription]]</p>
+          <h3 class="margin-banner-container">[[bannerName]]</h3>
+          <p class="margin-banner-container">[[bannerDescription]]</p>
         </paper-card>
         <template is="dom-repeat" items="[[cartItems]]">
           <wise-shopping-cart-item
