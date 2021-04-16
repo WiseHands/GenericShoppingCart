@@ -62,6 +62,9 @@ export class WiseShoppingCart extends PolymerElement {
             background-color: #3573e7;
 
         }
+        .banner-container p {
+            text-align: left;
+        }
         .margin-banner-container {
         	margin: 10px 5px;
           color: #e9f0fc;
